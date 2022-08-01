@@ -165,6 +165,12 @@ p {
 
 /*LOBBY*/
 
+#volver_lobby{
+    color: black;
+    text-decoration: none;
+}
+
+
 #Lobby {
     background-color: #aa4;
 }
