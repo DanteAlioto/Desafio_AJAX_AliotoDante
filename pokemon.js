@@ -1,6 +1,6 @@
-//Juego (sin terminar) de toma de decisiones. Uso de sweetalerts2
+//Juego de pokemon. Uso de sweetalerts2
 //Elige mediante el uso de botones conectados a eventos de js,  a un pokemon, y un bioma inicial para explorar.
-//proxima entrega implementacion de enemigos y sistema de combate por "cartas" (alertas), ademas de recorridos por biomas.
+//por ahora, solo bioma "bosque" disponible, 3 niveles con enemigos generados aleatoriamente mediante Fetch.
 
 contenedorSalir.innerHTML = "";
 
@@ -61,7 +61,7 @@ function empezarJuego() {
     function eleccionPikachu() {
         swal.fire({
             width: "50%",
-            html: `<img src="Imagenes/Pikachu.gif" width= "250px" alt="imagen_Pikachu">`,
+            html: `<img src="../Imagenes/Pikachu.gif" width= "250px" alt="imagen_Pikachu">`,
             title: `Pikachu ⚡`,
             footer: `Cuanto más potente es la energía eléctrica que genera este Pokémon, más suaves y elásticas se vuelven las bolsas de sus mejillas.`,
             ConfirmButton: false
@@ -79,7 +79,7 @@ function empezarJuego() {
     function eleccionCharmander() {
         swal.fire({
             width: "50%",
-            html: `<img src="Imagenes/Charmander.gif" width= "250px" alt="imagen_Charmander">`,
+            html: `<img src="../Imagenes/Charmander.gif" width= "250px" alt="imagen_Charmander">`,
             title: `Charmander 🔥`,
             footer: `Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola.`
         });
@@ -95,7 +95,7 @@ function empezarJuego() {
     function eleccionSquirtle() {
         swal.fire({
             width: "50%",
-            html: `<img src="Imagenes/Squirtle.gif" width= "250px" alt="imagen_Pikachu">`,
+            html: `<img src="../Imagenes/Squirtle.gif" width= "250px" alt="imagen_Pikachu">`,
             title: `Squirtle 🌊`,
             footer: `Cuando retrae su largo cuello en el caparazón, dispara agua a una presión increíble..`,
             ConfirmButton: false
@@ -134,7 +134,7 @@ function eleguirZona() {
     function eleccionBosque() {
         swal.fire({
             width: "80%",
-            html: `<img src="Imagenes/bosque.gif" width= "80%" alt="imagen_Charmander">`,
+            html: `<img src="../Imagenes/bosque.gif" width= "80%" alt="imagen_Charmander">`,
             title: `Viajando al Bosque`,
             footer: ``,
             showConfirmButton: false,
@@ -719,13 +719,13 @@ function eleguirZona() {
     function eleccionPlaya() {
         swal.fire({
             width: "60%",
-            html: `<img src="Imagenes/montaña.gif" width= "550px" alt="imagen_Charmander">`,
+            html: `<img src="../Imagenes/montaña.gif" width= "550px" alt="imagen_Charmander">`,
             title: `Viajando a la Montaña`,
             footer: ``,
             showConfirmButton: false,
             timer: 3500,
         });
         body.className = "montaña"
-        Juego.innerHTML = ` `
+        Juego.innerHTML = ` NO PROGRAMADO, PRUEBA SELECCIONAR BOSQUE `
     }
 }

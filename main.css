@@ -1,7 +1,3 @@
-
-
-
-
 #body {
     padding: 0px;
     margin: 0px;
@@ -96,12 +92,10 @@
 
 /*POKEBALLS*/
 
-/*POKEBALLS*/
-
 .child-to-body {
     width: 900px;
     height: 400px;
-    display: flex ;
+    display: flex;
     justify-content: space-around;
     align-items: center;
 }
@@ -183,6 +177,7 @@
     animation: blink .5s alternate infinite;
     animation-play-state: paused;
 }
+
 .pokeball__button_fire {
     position: absolute;
     top: calc(50% - 15px);
@@ -197,7 +192,8 @@
     animation: blinkFire .5s alternate infinite;
     animation-play-state: paused;
 }
-.pokeball__button_electric{
+
+.pokeball__button_electric {
     position: absolute;
     top: calc(50% - 15px);
     left: calc(50% - 15px);
@@ -215,10 +211,12 @@
 .pokeball:hover .pokeball__button {
     animation-play-state: running;
 }
+
 .pokeball:hover .pokeball__button_fire {
     animation-play-state: running;
 }
-.pokeball:hover .pokeball__button_electric{
+
+.pokeball:hover .pokeball__button_electric {
     animation-play-state: running;
 }
 
@@ -252,12 +250,13 @@
     }
 }
 
-#botonBosque{
+#botonBosque {
     background-image: url("Imagenes/bosque_backround.png");
     width: 40%;
     height: 400px;
 }
-#botonBosque:hover{
+
+#botonBosque:hover {
     width: 50%;
     border: solid rgb(0, 0, 0) 10px;
     height: 500px;
@@ -265,12 +264,13 @@
 
 
 
-#botonPlaya{
+#botonPlaya {
     background-image: url("Imagenes/montaña_backround.bmp");
     width: 40%;
     height: 400px;
 }
-#botonPlaya:hover{
+
+#botonPlaya:hover {
     width: 50%;
     border: solid rgb(0, 0, 0) 10px;
     height: 500px;
@@ -279,10 +279,10 @@
 
 
 
-.btn_mapa_container{
+.btn_mapa_container {
     padding-top: 20px;
-display: flex;
-justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 #mnsj_perdiste {
@@ -373,6 +373,7 @@ justify-content: space-around;
     background-image: url("Imagenes/menu_backround");
     background-size: 100%;
 }
+
 .menu_backround_2 {
     background-image: url("Imagenes/pokemno_lab.jpeg");
     background-size: 100%;
@@ -404,6 +405,7 @@ p {
 }
 
 #menu {
+    background-color: #7e8777;
     text-align: center;
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -533,11 +535,11 @@ p {
     grid-row: 3;
 }
 
-#botonAtacar{
+#botonAtacar {
     margin-left: 20px;
 }
 
-#noProgramado{
+#noProgramado {
     margin-left: 90px;
 }
 
@@ -548,19 +550,54 @@ p {
     text-decoration: none;
 }
 
+.p_lobby{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
 
 #Lobby {
     background-color: #aa4;
 }
 
-.link {
-    text-decoration: none;
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 40px;
-    margin-left: 250px;
-    margin-top: 300px;
+#lobby_btn_container{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
 }
+
+
+
+.link_backround{
+    
+    height: 500px;
+    width: 500px;
+    display: flex;
+    background-image: url("Imagenes/Pokemon_Preview.png") ;
+
+}
+
+.link_backround:hover{
+    width: 600px;
+    height: 550px;
+    border: solid #000 5px;
+}
+
+.link_backround_2{
+    
+    height: 500px;
+    width: 500px;
+    display: flex;
+    background-image: url("Imagenes/Aim_Preview.png") ;
+
+}
+
+.link_backround_2:hover{
+    width: 600px;
+    height: 550px;
+    border: solid #000 5px;
+}
+
 
 
 /*pokedex*/
