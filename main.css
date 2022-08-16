@@ -1,3 +1,7 @@
+
+
+
+
 #body {
     padding: 0px;
     margin: 0px;
@@ -90,7 +94,206 @@
 /*juego de pokemon*/
 
 
-.boton_rojo{
+/*POKEBALLS*/
+
+/*POKEBALLS*/
+
+.child-to-body {
+    width: 900px;
+    height: 400px;
+    display: flex ;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.pokeball {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    border: 5px solid #000;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: inset -10px 10px 0 10px #ccc;
+    animation: shake 1.25s cubic-bezier(.36, .07, .19, .97) infinite;
+    animation-play-state: paused;
+}
+
+.pokeball:hover {
+    animation-play-state: running;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0) rotate(0);
+    }
+
+    20% {
+        transform: translate(-10px, 0) rotate(-20deg);
+    }
+
+    30% {
+        transform: translate(10px, 0) rotate(20deg);
+    }
+
+    50% {
+        transform: translate(-10px, 0) rotate(-10deg);
+    }
+
+    60% {
+        transform: translate(10px, 0) rotate(10deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0);
+    }
+}
+
+.pokeball::before,
+.pokeball::after {
+    content: "";
+    position: absolute;
+}
+
+.pokeball::before {
+    background: red;
+    width: 100%;
+    height: 50%;
+}
+
+.pokeball::after {
+    top: calc(50% - 5px);
+    width: 100%;
+    height: 10px;
+    background: #000;
+}
+
+.pokeball__button {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 4px solid #7f8c8d;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 7px black;
+    animation: blink .5s alternate infinite;
+    animation-play-state: paused;
+}
+.pokeball__button_fire {
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 4px solid #7f8c8d;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 7px black;
+    animation: blinkFire .5s alternate infinite;
+    animation-play-state: paused;
+}
+.pokeball__button_electric{
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 4px solid #7f8c8d;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 0 7px black;
+    animation: blinkElectric .5s alternate infinite;
+    animation-play-state: paused;
+}
+
+.pokeball:hover .pokeball__button {
+    animation-play-state: running;
+}
+.pokeball:hover .pokeball__button_fire {
+    animation-play-state: running;
+}
+.pokeball:hover .pokeball__button_electric{
+    animation-play-state: running;
+}
+
+@keyframes blink {
+    from {
+        background: #eee;
+    }
+
+    to {
+        background: #25a2ef;
+    }
+}
+
+@keyframes blinkFire {
+    from {
+        background: #eee;
+    }
+
+    to {
+        background: #db4e0c;
+    }
+}
+
+@keyframes blinkElectric {
+    from {
+        background: #eee;
+    }
+
+    to {
+        background: #ffbf00;
+    }
+}
+
+#botonBosque{
+    background-image: url("Imagenes/bosque_backround.png");
+    width: 40%;
+    height: 400px;
+}
+#botonBosque:hover{
+    width: 50%;
+    border: solid rgb(0, 0, 0) 10px;
+    height: 500px;
+}
+
+
+
+#botonPlaya{
+    background-image: url("Imagenes/montaña_backround.bmp");
+    width: 40%;
+    height: 400px;
+}
+#botonPlaya:hover{
+    width: 50%;
+    border: solid rgb(0, 0, 0) 10px;
+    height: 500px;
+}
+
+
+
+
+.btn_mapa_container{
+    padding-top: 20px;
+display: flex;
+justify-content: space-around;
+}
+
+#mnsj_perdiste {
+    font-size: 20px;
+    color: white;
+    background-color: #2e2cc6;
+    height: 25px;
+    margin-top: 200px;
+}
+
+.boton_rojo {
     margin-top: 450px;
     background-color: #900;
     border-radius: 80px;
@@ -98,7 +301,7 @@
     height: 50px;
 }
 
-.boton_verde{
+.boton_verde {
     margin-top: 450px;
     background-color: rgb(0, 137, 0);
     border-radius: 80px;
@@ -106,7 +309,7 @@
     height: 50px;
 }
 
-.batallas_contenedor{
+.batallas_contenedor {
     margin-top: 20px;
 
     width: 800px;
@@ -119,22 +322,22 @@
 
 
 
-.batalla_bosque{
+.batalla_bosque {
     margin-top: 20px;
     width: 800px;
     height: 550px;
     display: flex;
-    background-image: url("Imagenes/battleground_forest.png") ;
+    background-image: url("Imagenes/battleground_forest.png");
     background-repeat: no-repeat;
-    background-size: 800px  550px;
+    background-size: 800px 550px;
 }
 
-.boton_pelea{
+.boton_pelea {
     margin-top: 450px;
     background-color: white;
     width: 50px;
     height: 50px;
-    border:solid 2px black;
+    border: solid 2px black;
     border-radius: 80px;
 }
 
@@ -158,7 +361,7 @@
 
 
 .montaña {
-    
+
     background-image: url("Imagenes/montaña_backround.bmp");
 }
 
@@ -170,21 +373,16 @@
     background-image: url("Imagenes/menu_backround");
     background-size: 100%;
 }
-
-
-
-
-#BotonPikachu {
-    background-color: #ffbf00;
+.menu_backround_2 {
+    background-image: url("Imagenes/pokemno_lab.jpeg");
+    background-size: 100%;
 }
 
-#BotonCharmander {
-    background-color: #db4e0c;
+.menu_backround_3 {
+    background-image: url("Imagenes/Professor_Oaks_Laboratory.png");
+    background-size: 100%;
 }
 
-#BotonSquirtle {
-    background-color: #25a2ef;
-}
 
 #botones_pokemon {
     display: flex;
@@ -212,20 +410,20 @@ p {
     color: rgb(0, 0, 0);
 }
 
-.area_batalla{
+.area_batalla {
     width: 500px;
     background-color: white;
 }
 
 /*Grid pokemon*/
-.grid_batalla_bosque{
+.grid_batalla_bosque {
     width: 800px;
     display: grid;
-    grid-template-columns: 440px 360px ;
+    grid-template-columns: 440px 360px;
     grid-template-rows: 240px 170px 160px;
 }
 
-.one{
+.one {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -235,48 +433,64 @@ p {
     grid-column: 1;
     grid-row: 1;
 }
-#health_enemy{
+
+#health_enemy {
     margin-left: 163px;
     margin-top: 6px;
     width: 150px;
-    
+
 }
 
 
-.two{
+.two {
     grid-column: 2;
     grid-row: 1;
 }
-.twoGolpe{
+
+.twoGolpe {
     grid-column: 2;
     grid-row: 1;
-    animation-name: ataqueEnemigo;  animation-duration: 1s;
+    animation-name: ataqueEnemigo;
+    animation-duration: 1s;
     transition: ease-in-out;
 }
 
 
-.three{
+.three {
     grid-column: 1;
     grid-row: 2;
 }
-.threeGolpe{
+
+.threeGolpe {
     grid-column: 1;
     grid-row: 2;
-    animation-name: ataque; animation-duration: 2s; 
+    animation-name: ataque;
+    animation-duration: 2s;
     transition: ease-in-out;
 }
 
 
-@keyframes ataque{
-to{transform: translateX(0);}
-from{transform: translate(270px,-200px);}
-}
-@keyframes ataqueEnemigo{
-    from{transform: translate(-270px,150px);}
-    to{transform: translateX(0);}
+@keyframes ataque {
+    to {
+        transform: translateX(0);
     }
 
-.four{
+    from {
+        transform: translate(270px, -200px);
+    }
+}
+
+@keyframes ataqueEnemigo {
+    from {
+        transform: translate(-270px, 150px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.four {
     text-align: center;
     padding-right: 90px;
     padding-top: 80px;
@@ -285,29 +499,51 @@ from{transform: translate(270px,-200px);}
     grid-row: 2;
 }
 
-#health_yo{
+#infoMiPokemon {
+    display: flex;
+    flex-direction: row;
+    height: 23px;
+    padding-left: 105px;
+}
+
+#Mi_Nivel {
+    padding-left: 60px;
+}
+
+
+#health_yo {
     width: 150px;
     margin-left: 129px;
     margin-top: 7px;
 }
 
-.five{
-    font-size: 30px;
+.five {
+    font-size: 23px;
     text-align: center;
     padding-top: 40px;
     color: rgb(200, 193, 193);
     grid-column: 1;
     grid-row: 3;
 }
-.six{
+
+.six {
+    padding-left: 10px;
+    padding-top: 30px;
     grid-column: 2;
     grid-row: 3;
 }
 
+#botonAtacar{
+    margin-left: 20px;
+}
+
+#noProgramado{
+    margin-left: 90px;
+}
 
 /*LOBBY*/
 
-#volver_lobby{
+#volver_lobby {
     color: black;
     text-decoration: none;
 }
@@ -329,12 +565,12 @@ from{transform: translate(270px,-200px);}
 
 /*pokedex*/
 
-#body_Pokedex{
-    
-    background-image: linear-gradient(135deg,#00b7d4,#505488,#2f3f80,#2e2cc6,#5a4894,#a950a1);
+#body_Pokedex {
+
+    background-image: linear-gradient(135deg, #00b7d4, #505488, #2f3f80, #2e2cc6, #5a4894, #a950a1);
     background-size: 500%;
 
-animation: animated 12s ease-in-out infinite;
+    animation: animated 12s ease-in-out infinite;
 
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -343,9 +579,17 @@ animation: animated 12s ease-in-out infinite;
 
 
 @keyframes animated {
-    0%{background-position: 0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position: 0% 50%;}
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 
 }
 
@@ -429,13 +673,13 @@ h1 {
     text-align: left;
 }
 
-.boton_pokedex{
+.boton_pokedex {
     color: black;
     text-decoration: none;
     font-size: 15px;
 }
 
-#boton_pokedex{
+#boton_pokedex {
     margin-top: 10px;
     border-radius: 10px;
 }
