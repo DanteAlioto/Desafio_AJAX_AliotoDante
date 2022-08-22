@@ -3,7 +3,8 @@
 //para ganar el juego, hay que llegar a la cantidad de puntos indicada antes de que el tiempo se agote.
 //la unica forma de ganar puntos (hasta el momento) es mantener el cursor sobre la pelota roja.
 //la pelota se movera de posicion cada vez que hagamos un punto.
-
+//boton "historial" te permite acceder a los datos guardados de diferentes jugadores que hayan ganado previamente.
+//IMPORTANTE: para que le boton historial funcione, hay que haber ganado el juego al menos 1 vez.
 
 //declaracion de variables
 let puntos = 0;
@@ -13,6 +14,9 @@ let validator;
 let nombre;
 let jugadaNum = 0;
 let usuario;
+let lista = [];
+const tiempos = [];
+const data = [];
 
 
 //declaracion de dom.
@@ -27,35 +31,36 @@ let welcome = document.getElementById("welcome");
 let cerrarSesion = document.getElementById("cerrarSesion");
 let rank = document.getElementById("rank");
 let historialCompleto = document.getElementById("historial")
-document.getElementById("player").addEventListener("mouseover", sumarPuntos);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//storage
-let usuarioStorage = localStorage.getItem("usuario")
-const tiempos = [];
-const data = [];
+let borrarHistorial = document.getElementById("clear_localStorage")
 const finalColumn = document.querySelector("[data-final-column]");
+let usuarioStorage = localStorage.getItem("usuario")
+
 
 //declaracion de eventos
 botonIniciador.addEventListener("click", iniciador)
 cerrarSesion.addEventListener("click", cerrarSesionfuncion);
 historialCompleto.addEventListener("click", historial);
-
+borrarHistorial.addEventListener("click", clearStorage);
+document.getElementById("player").addEventListener("mouseover", sumarPuntos);
 
 //declaracion de funciones
+
+function guardarLocalStorage() {
+    //esta funcion guarda datos al local storage solo si el usuario gana el juego.
+    lista = ((JSON.parse(localStorage.getItem("lista")) || []));
+    lista.push({
+        nombree: `${usuario}`,
+        tiempoo: `${necesarios - tiempo}`
+    })
+
+    //los guarda en el id "lista"
+    localStorage.setItem("lista", JSON.stringify(lista));
+
+    //declaracion de nueva variale usando la informacion previamente guardada.
+    //la utilizo en la funcion "historial".
+    listaGuardada = JSON.parse(localStorage.getItem("lista"));
+}
+
 function sumarPuntos() {
     if (validator === "1") {
         puntos++;
@@ -70,12 +75,11 @@ function sumarPuntos() {
         //condicion para que el usuario gane el juego
         if (puntos === necesarios) {
             nombre = usuario;
-
             let tiempoTardadoGanar = necesarios - tiempo;
             tiempos.push(tiempoTardadoGanar);
 
             alert("HAS GANADO, PULSA DE NUEVO EL BOTON PARA JUGAR DE NUEVO")
-            getInfo()
+            guardarLocalStorage();
             jugadores();
             reset();
         }
@@ -93,20 +97,6 @@ function restarTiempo() {
     }
 }
 
-function getInfo() {
-    jugadaNum++;
-
-    data.push({
-        posicion: jugadaNum,
-        data: `usuario:${nombre} \n tiempo restante:${tiempo} segundos`
-    })
-    //condicional a un array
-    console.log(data?.data || "no hay datos cargados");
-
-    //guardo el array de los datos jugados en un string.
-    //mi intencion es hacer (en otra entrega) un ranking con los mejores puntajes guardados localmente.
-    localStorage.setItem("data", JSON.stringify(data));
-};
 
 function jugadores() {
     let registro = document.createElement("div")
@@ -141,7 +131,6 @@ function reset() {
 
 function iniciador() {
     validator = "1"
-
 }
 
 function cerrarSesionfuncion() {
@@ -151,45 +140,38 @@ function cerrarSesionfuncion() {
     welcome.innerText = "Refresca la pagina";
 };
 
+//crea una "lista historial" en mi page, usando los datos guardados en el local storage.
 function historial() {
-    let opDisponi = data.map(elemento => elemento.posicion);
-    //el find busca un elemento "posicion" (elegido por el usuario) dentro del arreglo.
-    let busqueda = parseInt(prompt(`Ingrese el numero de jugada \n Ejemplo: "1" = Primera jugada \n Jugadas guardadas hasta el momento:${opDisponi}`))
-    let memoria = data.find(elemento => elemento.posicion === busqueda);
-    rank.innerText = `La informacion de la jugada nº${busqueda} es \n ${memoria.data}`;
-
+    listaGuardada.forEach(element => {
+        let div = document.createElement("div");
+        div.className = "registroHistorial";
+        div.innerHTML = "User: " + element.nombree + "," + " Time: " + element.tiempoo + "s";
+        rank.appendChild(div);
+    });
 }
 
+//funcion que borra los datos del historial.
+function clearStorage() {
+    alert("El historial fue borrado!");
+    rank.innerHTML = "";
+    localStorage.removeItem("lista");
+}
+
+//usa el valor de "usuario" guardado en el storage.
 function memoriaUsuario() {
     usuario = usuarioStorage;
-    welcome.innerText = "Bienvenido/a, " + usuario;
+    welcome.innerText = "Bienvenido/a, " + localStorage.getItem("usuario");
 }
 
+//si no hay valor de usuario, lo pide y lo guarda en storage.
 function memoriaUsuarioPedir() {
     usuario = prompt("ingresa tu nombre");
     localStorage.setItem("usuario", usuario);
-    welcome.innerText = "Bienvenido " + usuario;
+    welcome.innerText = "Bienvenido " + localStorage.getItem("usuario");
 }
-
 
 //uso de storage para el valor "usuario", usando operador ternario.
 usuarioStorage ? memoriaUsuario() : memoriaUsuarioPedir();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 setInterval(restarTiempo, 1000);

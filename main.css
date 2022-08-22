@@ -63,6 +63,17 @@
     background-color: rgb(178, 178, 144);
 }
 
+.registroHistorial {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 15px;
+    margin-right: 20px;
+    margin-left: 0px;
+    border: #000 solid 2px;
+    background-color: rgb(178, 178, 144);
+}
+
 #rank {
     margin-top: 25px;
 }
